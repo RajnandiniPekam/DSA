@@ -1,0 +1,31 @@
+EXP:14 INSERTION Sort
+#include <stdio.h>
+
+int main() {
+    int n, i, j;
+    float a[50], key;
+
+    printf("Enter number of products: ");
+    scanf("%d", &n);
+
+    printf("Enter product prices:\n");
+    for (i = 0; i < n; i++)
+        scanf("%f", &a[i]);
+
+    for (i = 1; i < n; i++) {
+        key = a[i];
+        j = i - 1;
+
+        while (j >= 0 && a[j] > key) {
+            a[j + 1] = a[j];
+            j--;
+        }
+        a[j + 1] = key;
+    }
+
+    printf("\nSorted prices:\n");
+    for (i = 0; i < n; i++)
+        printf("%.2f ", a[i]);
+
+    return 0;
+}
